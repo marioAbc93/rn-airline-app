@@ -1,9 +1,10 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { Tabs } from "expo-router";
+import React from "react";
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { TabBarIcon } from "@/components/navigation/TabBarIcon";
+import { Colors } from "@/constants/Colors";
+import { useColorScheme } from "@/hooks/useColorScheme";
+import { View } from "react-native";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -11,24 +12,104 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
+        tabBarInactiveTintColor: "gray",
         headerShown: false,
-      }}>
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
+          title: "Inicio",
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
+            <View
+              style={{
+                borderTopWidth: focused ? 2 : 0,
+                borderTopColor: focused
+                  ? Colors[colorScheme ?? "light"].tint
+                  : "transparent",
+                alignItems: "center",
+                paddingTop: 10,
+                paddingBottom: 3,
+              }}
+            >
+              <TabBarIcon
+                name={focused ? "home" : "home-outline"}
+                color={color}
+              />
+            </View>
           ),
         }}
       />
       <Tabs.Screen
         name="explore"
         options={{
-          title: 'Explore',
+          title: "Viajes",
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+            <View
+              style={{
+                borderTopWidth: focused ? 2 : 0,
+                borderTopColor: focused
+                  ? Colors[colorScheme ?? "light"].tint
+                  : "transparent",
+                alignItems: "center",
+                paddingTop: 10,
+                paddingBottom: 3,
+              }}
+            >
+              <TabBarIcon
+                name={focused ? "briefcase" : "briefcase-outline"}
+                color={color}
+              />
+            </View>
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="probanding"
+        options={{
+          title: "Reserva",
+          tabBarIcon: ({ color, focused }) => (
+            <View
+              style={{
+                borderTopWidth: focused ? 2 : 0,
+                borderTopColor: focused
+                  ? Colors[colorScheme ?? "light"].tint
+                  : "transparent",
+                alignItems: "center",
+                paddingTop: 10,
+                paddingBottom: 3,
+              }}
+            >
+              <TabBarIcon
+                name={focused ? "airplane-sharp" : "airplane-outline"}
+                color={color}
+              />
+            </View>
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "Perfil",
+          tabBarIcon: ({ color, focused }) => (
+            <View
+              style={{
+                borderTopWidth: focused ? 2 : 0,
+                borderTopColor: focused
+                  ? Colors[colorScheme ?? "light"].tint
+                  : "transparent",
+                alignItems: "center",
+                paddingTop: 10,
+                paddingBottom: 3,
+              }}
+            >
+              <TabBarIcon
+                name={focused ? "man" : "man-outline"}
+                color={color}
+              />
+            </View>
           ),
         }}
       />
