@@ -3,11 +3,11 @@ import { View, Text } from "react-native";
 export default function Probanding() {
   return (
     <>
-      <View>
+      <View className="font-bold">
         <Text>Hola</Text>
       </View>
       <View>
-        <Text>mundo</Text>
+        <Text className="bg-red-400">mundo</Text>
       </View>
     </>
   );
