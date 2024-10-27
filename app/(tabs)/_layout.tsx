@@ -25,9 +25,7 @@ export default function TabLayout() {
             <View
               style={{
                 borderTopWidth: focused ? 2 : 0,
-                borderTopColor: focused
-                  ? Colors[colorScheme ?? "light"].tint
-                  : "transparent",
+                borderTopColor: focused ? "aerored" : "transparent",
                 alignItems: "center",
                 paddingTop: 10,
                 paddingBottom: 3,
