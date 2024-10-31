@@ -5,6 +5,8 @@ import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { View } from "react-native";
+import Icon from "@/assets/icons/logo.svg";
+import UnSelectedIcon from "@/assets/icons/gray-logo.svg";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -12,9 +14,12 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
+        tabBarActiveTintColor: "white",
         tabBarInactiveTintColor: "gray",
         headerShown: false,
+        tabBarStyle: {
+          backgroundColor: "#020C41",
+        },
       }}
     >
       <Tabs.Screen
@@ -25,31 +30,31 @@ export default function TabLayout() {
             <View
               style={{
                 borderTopWidth: focused ? 2 : 0,
-                borderTopColor: focused ? "aerored" : "transparent",
+                borderTopColor: focused ? "#F8026F" : "transparent",
                 alignItems: "center",
                 paddingTop: 10,
                 paddingBottom: 3,
+                gap: 2,
               }}
             >
-              <TabBarIcon
+              {/*  <TabBarIcon
                 name={focused ? "home" : "home-outline"}
                 color={color}
-              />
+              /> */}
+              {focused ? <Icon /> : <UnSelectedIcon />}
             </View>
           ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="travels"
         options={{
           title: "Viajes",
           tabBarIcon: ({ color, focused }) => (
             <View
               style={{
                 borderTopWidth: focused ? 2 : 0,
-                borderTopColor: focused
-                  ? Colors[colorScheme ?? "light"].tint
-                  : "transparent",
+                borderTopColor: focused ? "#F8026F" : "transparent",
                 alignItems: "center",
                 paddingTop: 10,
                 paddingBottom: 3,
@@ -64,16 +69,14 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="probanding"
+        name="booking"
         options={{
           title: "Reserva",
           tabBarIcon: ({ color, focused }) => (
             <View
               style={{
                 borderTopWidth: focused ? 2 : 0,
-                borderTopColor: focused
-                  ? Colors[colorScheme ?? "light"].tint
-                  : "transparent",
+                borderTopColor: focused ? "#F8026F" : "transparent",
                 alignItems: "center",
                 paddingTop: 10,
                 paddingBottom: 3,
@@ -95,9 +98,7 @@ export default function TabLayout() {
             <View
               style={{
                 borderTopWidth: focused ? 2 : 0,
-                borderTopColor: focused
-                  ? Colors[colorScheme ?? "light"].tint
-                  : "transparent",
+                borderTopColor: focused ? "#F8026F" : "transparent",
                 alignItems: "center",
                 paddingTop: 10,
                 paddingBottom: 3,
